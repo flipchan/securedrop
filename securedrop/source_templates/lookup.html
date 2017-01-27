@@ -32,7 +32,10 @@
   <button type="submit" class="btn primary">
   <img src="{{ url_for('static', filename='i/font-awesome/white/cloud-upload.svg') }}" width="17px" height="17px">
   Submit</button>
+
 </form>
+
+<p><a href="{{ url_for('lookup') }}"><button class="btn primary">Cancel</button></a></p>
 
 <p><strong>Tip:</strong> If you are already familiar with GPG, you can optionally encrypt your files and messages with our <a href="/journalist-key" class="text-link">public key</a> before submission. Files are encrypted as they are received by SecureDrop; encrypting before submission provides an extra layer of security before your data reaches SecureDrop. <a href="/why-journalist-key" class="text-link">Learn more</a>.</p>
 
@@ -59,7 +62,7 @@
               </p>
           </div>
         </form>
-        <blockquote>{{ reply.decrypted | nl2br }}</blockquote>
+        <blockquote><h5>From: {{ reply.journalist.username|title }}</h5> {{ reply.decrypted | nl2br }}</blockquote>
         <div class="clearfix"></div>
       </div>
     {% endfor %}
